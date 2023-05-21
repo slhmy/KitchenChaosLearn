@@ -2,12 +2,20 @@ using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public static Player Instance { get; private set; }
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+
+    public class OnSelectedCounterChangedEventArgs : EventArgs {
+        public ClearCounter SelectedCounter;
+    }
+    
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
 
     private Vector3 _lastMoveDirection;
     private bool _isWalking;
+    private ClearCounter _selectedCounter;
     
     private const float InteractionDistance = 2f;
     
@@ -15,21 +23,21 @@ public class Player : MonoBehaviour {
     private const float PlayerRadius = 0.7f;
     private const float PlayerHeight = 2f;
 
+    private void Awake() {
+        if (Instance != null) {
+            Debug.LogError("There is more than one Player instance");
+        }
+
+        Instance = this;
+    }
+
     private void Start() {
         gameInput.OnInteractAction += GameInput_OnInterAction;
     }
 
     private void GameInput_OnInterAction(object sender, EventArgs e) {
-        var inputVector = gameInput.GetMovementVectorNormalized();
-        var moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        if (moveDirection != Vector3.zero) {
-            _lastMoveDirection = moveDirection;
-        }
-        
-        if (Physics.Raycast(transform.position, _lastMoveDirection, out var raycastHit, InteractionDistance, countersLayerMask)) {
-            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)) {
-                clearCounter.Interact();
-            }
+        if (_selectedCounter != null) {
+            _selectedCounter.Interact();
         }
     }
 
@@ -47,8 +55,14 @@ public class Player : MonoBehaviour {
         
         if (Physics.Raycast(transform.position, _lastMoveDirection, out var raycastHit, InteractionDistance, countersLayerMask)) {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)) {
-                // clearCounter.Interact();
+                if (clearCounter != _selectedCounter) {
+                    SetSelectedCounter(clearCounter);
+                }
             }
+            else { SetSelectedCounter(null); }
+        }
+        else {
+            SetSelectedCounter(null);
         }
     }
 
@@ -81,6 +95,13 @@ public class Player : MonoBehaviour {
         var canMoveInZ = !Physics.CapsuleCast(
             position, position + PlayerHeight * Vector3.up, PlayerRadius, moveDirectionZ, moveDistance);
         return canMoveInZ ? moveDirectionZ : Vector3.zero;
+    }
+
+    private void SetSelectedCounter(ClearCounter clearCounter) {
+        this._selectedCounter = clearCounter;
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs {
+            SelectedCounter = this._selectedCounter
+        });
     }
 
     public bool IsWalking() {
