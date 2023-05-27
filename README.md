@@ -4,3 +4,8 @@ Codes are slightly different, because I try to follow my own developing practice
 I'm now going through parts `Selected Counter Visual, Singleton Pattern`, so not a finished project yet.
 
 Notes are about to add after I gain enough things & overview to help me conclude my learn.
+
+## Script Editing
+
+This project is supposed to be completely Rider friendly,
+You should see very few warnings if you use Rider for script editing.

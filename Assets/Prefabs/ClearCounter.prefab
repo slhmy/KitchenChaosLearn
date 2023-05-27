@@ -100,8 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bd48ce49cac3e4b831e9b095088e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterTopPoint: {fileID: 0}
-  kitchenObject: {fileID: 0}
+  counterTopPoint: {fileID: 7150873930258251251}
 --- !u!1001 &3466486020281003023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,5 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150b4ca3a9a747bc8a1d37d8458b1db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearCounter: {fileID: -8809102636160685344}
-  visualGameObject: {fileID: 1492155993916252624}
+  baseCounter: {fileID: -8809102636160685344}
+  visualGameObjectArray:
+  - {fileID: 1492155993916252624}
