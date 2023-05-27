@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     private Vector3 _lastMoveDirection;
     private bool _isWalking;
     private BaseCounter _selectedCounter;
+    private KitchenObject _kitchenObject;
     
     private const float InteractionDistance = 2f;
     
@@ -111,11 +112,22 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         return _isWalking;
     }
 
-    public bool HasKitchenObject() {
-        return false;
-    }
-    
     public Transform GetKitchenObjectFollowTransform() {
         return kitchenObjectHoldPoint;
+    }
+    public void SetKitchenObject(KitchenObject kitchenObject) {
+        this._kitchenObject = kitchenObject;
+        if (kitchenObject != null) {
+            Debug.Log("Play already has a kitchenObject");
+        }
+    }
+    public KitchenObject GetKitchenObject() {
+        return _kitchenObject;
+    }
+    public void ClearKitchenObject() {
+        _kitchenObject = null;
+    }
+    public bool HasKitchenObject() {
+        return _kitchenObject != null;
     }
 }

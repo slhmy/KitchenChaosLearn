@@ -9,11 +9,10 @@ namespace Counters {
         [SerializeField] private KitchenObjectSO kitchenObjectSO;
     
         public override void Interact(Player player) {
-            if (!player.HasKitchenObject()) {
-                KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
+            if (player.HasKitchenObject()) return;
+            KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
 
-                OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
-            }
+            OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
         }
     }
 }

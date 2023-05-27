@@ -188,11 +188,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContainerCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 2962766582762047585, guid: 9c490b23f45d0de4397b7b94f8757adf,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896,
+        type: 3}
+    - target: {fileID: 3506938938197883944, guid: 9c490b23f45d0de4397b7b94f8757adf,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896,
+        type: 3}
     - target: {fileID: 5491408154942136329, guid: 9c490b23f45d0de4397b7b94f8757adf,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6506290337582196663, guid: 9c490b23f45d0de4397b7b94f8757adf,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fbabadb12d48fb47937449802c9ca50,
+        type: 2}
     - target: {fileID: 8283010447968345039, guid: 9c490b23f45d0de4397b7b94f8757adf,
         type: 3}
       propertyPath: m_RootOrder
