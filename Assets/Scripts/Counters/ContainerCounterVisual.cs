@@ -9,6 +9,9 @@ namespace Counters {
         private Animator _animator;
         private static readonly int OpenClose = Animator.StringToHash(OpenCloseConst);
 
+        private void Awake() {
+            _animator = GetComponent<Animator>();
+        }
         private void Start() {
             containerCounter.OnPlayerGrabbedObject += ContainerCounter_OnPlayerGrabbedObject;
         }
