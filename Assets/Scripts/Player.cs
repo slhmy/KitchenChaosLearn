@@ -63,7 +63,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
                     Debug.Log("selectCounter changed");
                 }
             }
-            else { SetSelectedCounter(null); }
+            else {
+                Debug.Log("Get other object than counter");
+                SetSelectedCounter(null);
+            }
         }
         else {
             SetSelectedCounter(null);
@@ -116,10 +119,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         return kitchenObjectHoldPoint;
     }
     public void SetKitchenObject(KitchenObject kitchenObject) {
-        this._kitchenObject = kitchenObject;
         if (kitchenObject != null) {
             Debug.Log("Play already has a kitchenObject");
         }
+        this._kitchenObject = kitchenObject;
     }
     public KitchenObject GetKitchenObject() {
         return _kitchenObject;

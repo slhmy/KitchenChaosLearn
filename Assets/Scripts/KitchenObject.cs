@@ -10,7 +10,6 @@ public class KitchenObject : MonoBehaviour {
 
     public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent) {
         this._kitchenObjectParent?.ClearKitchenObject();
-
         this._kitchenObjectParent = kitchenObjectParent;
 
         if (kitchenObjectParent.HasKitchenObject()) {
@@ -19,8 +18,14 @@ public class KitchenObject : MonoBehaviour {
 
         kitchenObjectParent.SetKitchenObject(this);
 
-        transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
-        transform.localPosition = Vector3.zero;
+        Transform transform1;
+        (transform1 = transform).parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
+        transform1.localPosition = Vector3.zero;
+    }
+    
+    public void DestroySelf() {
+        _kitchenObjectParent.ClearKitchenObject();
+        Destroy(gameObject);
     }
 
     public static void SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent) {
