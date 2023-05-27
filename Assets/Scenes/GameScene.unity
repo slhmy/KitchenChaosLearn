@@ -600,6 +600,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!4 &445225078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7150873930258251251, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
+    type: 3}
+  m_PrefabInstance: {fileID: 8835849886917156008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &729429392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -608,6 +614,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8809102636160685344, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
+        type: 3}
+      propertyPath: kitchenObject
+      value: 
+      objectReference: {fileID: 3812876574508226176, guid: 81e9fe7b3cd084242a088e945f531f38,
+        type: 3}
+    - target: {fileID: -8809102636160685344, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
+        type: 3}
+      propertyPath: counterTopPoint
+      value: 
+      objectReference: {fileID: 861400589}
     - target: {fileID: 2592117501538955218, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
         type: 3}
       propertyPath: m_Name
@@ -621,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 3435673058582386498, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.75
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 3435673058582386498, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
         type: 3}
@@ -722,6 +739,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &861400589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7150873930258251251, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
+    type: 3}
+  m_PrefabInstance: {fileID: 729429392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &927934963
 GameObject:
   m_ObjectHideFlags: 3
@@ -1047,6 +1070,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8809102636160685344, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
+        type: 3}
+      propertyPath: kitchenObject
+      value: 
+      objectReference: {fileID: 3812876574508226176, guid: bc49891f572f1164e9938f845ec37ab0,
+        type: 3}
+    - target: {fileID: -8809102636160685344, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
+        type: 3}
+      propertyPath: counterTopPoint
+      value: 
+      objectReference: {fileID: 445225078}
     - target: {fileID: 2592117501538955218, guid: 554ced766b9a0ff4ea7231b58ec7aa15,
         type: 3}
       propertyPath: m_Name
