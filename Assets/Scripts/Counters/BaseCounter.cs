@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Counters {
-    public class BaseCounter : MonoBehaviour, IKitchenObjectParent {
+    public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent {
         [SerializeField] private Transform counterTopPoint;        
         
         private KitchenObject _kitchenObject;
