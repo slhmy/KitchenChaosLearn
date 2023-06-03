@@ -33,4 +33,8 @@ public class KitchenObject : MonoBehaviour {
         KitchenObject kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
         kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
     }
+    
+    public KitchenObjectSO GetKitchenObjectSO() {
+        return kitchenObjectSO;
+    }
 }

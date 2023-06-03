@@ -10,6 +10,10 @@ namespace Counters {
             Debug.LogError("Called BaseCounter.Interact(), shouldn't happened.");
         }
         
+        public virtual void InteractAlternate(Player player) {
+            Debug.LogError("Called BaseCounter.InteractAlternate(), shouldn't happened.");
+        }
+        
         public Transform GetKitchenObjectFollowTransform() {
             return counterTopPoint;
         }
