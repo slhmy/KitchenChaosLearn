@@ -11,8 +11,7 @@ namespace Counters {
         [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
 
         private int _cuttingProgress;
-
-
+        
         public override void Interact(Player player) {
             if (!HasKitchenObject()) {
                 if (player.HasKitchenObject()) {
@@ -41,6 +40,7 @@ namespace Counters {
         }
 
         public override void InteractAlternate(Player player) {
+            Debug.Log("CuttingCounter.InteractAlternate()");
             if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO())) {
                 // There is a KitchenObject here AND it can be cut
                 _cuttingProgress++;
