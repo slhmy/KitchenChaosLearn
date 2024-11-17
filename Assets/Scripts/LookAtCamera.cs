@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour {
@@ -16,7 +14,7 @@ public class LookAtCamera : MonoBehaviour {
 
     [SerializeField] private Mode mode;
     private Camera _mainCamera;
-    
+
     private void Start() {
         _mainCamera = Camera.main;
     }

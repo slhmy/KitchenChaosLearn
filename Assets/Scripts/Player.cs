@@ -9,7 +9,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     public class OnSelectedCounterChangedEventArgs : EventArgs {
         public BaseCounter SelectedCounter;
     }
-    
+
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
@@ -19,9 +19,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     private bool _isWalking;
     private BaseCounter _selectedCounter;
     private KitchenObject _kitchenObject;
-    
+
     private const float InteractionDistance = 2f;
-    
+
     private const float RotateSpeed = 10f;
     private const float PlayerRadius = 0.7f;
     private const float PlayerHeight = 2f;
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
             _selectedCounter.Interact(this);
         }
     }
-    
+
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e) {
         if (_selectedCounter != null) {
             _selectedCounter.InteractAlternate(this);
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         if (moveDirection != Vector3.zero) {
             _lastMoveDirection = moveDirection;
         }
-        
+
         if (Physics.Raycast(transform.position, _lastMoveDirection, out var raycastHit, InteractionDistance, countersLayerMask)) {
             if (raycastHit.transform.TryGetComponent(out BaseCounter counter)) {
                 if (counter != _selectedCounter) {
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         var moveDirection = new Vector3(inputVector.x, 0, inputVector.y);
         var moveDistance = moveSpeed * Time.deltaTime;
         var transform1 = transform;
-        
+
         _isWalking = moveDirection != Vector3.zero;
         transform1.forward = Vector3.Slerp(transform1.forward,moveDirection, Time.deltaTime * RotateSpeed);
 
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         var canMoveInX = !Physics.CapsuleCast(
          position, position + PlayerHeight * Vector3.up, PlayerRadius, moveDirectionX, moveDistance);
         if (canMoveInX) return moveDirectionX;
-            
+
         var moveDirectionZ = new Vector3(0, 0, moveDirection.z).normalized;
         var canMoveInZ = !Physics.CapsuleCast(
             position, position + PlayerHeight * Vector3.up, PlayerRadius, moveDirectionZ, moveDistance);

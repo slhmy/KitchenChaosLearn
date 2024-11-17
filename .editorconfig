@@ -1,0 +1,9 @@
+[*.{cs,vb}]
+
+# IDE0031: Use null propagation
+# Unity objects should not use null propagation
+dotnet_style_null_propagation = false
+
+# IDE0130: Namespace does not match folder structure
+# Unity does not follow the default folder structure
+dotnet_style_namespace_match_folder = false

@@ -2,18 +2,18 @@
 
 namespace Counters {
     public abstract class BaseCounter : MonoBehaviour, IKitchenObjectParent {
-        [SerializeField] private Transform counterTopPoint;        
-        
+        [SerializeField] private Transform counterTopPoint;
+
         private KitchenObject _kitchenObject;
-        
+
         public virtual void Interact(Player player) {
             Debug.LogError("Called BaseCounter.Interact(), shouldn't happened.");
         }
-        
+
         public virtual void InteractAlternate(Player player) {
             Debug.LogError("Called BaseCounter.InteractAlternate(), shouldn't happened.");
         }
-        
+
         public Transform GetKitchenObjectFollowTransform() {
             return counterTopPoint;
         }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ScriptableObjects;
-using Unity.VisualScripting;
+﻿using ScriptableObjects;
 using UnityEngine;
 
 public class KitchenObject : MonoBehaviour {
@@ -22,7 +19,7 @@ public class KitchenObject : MonoBehaviour {
         (transform1 = transform).parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
         transform1.localPosition = Vector3.zero;
     }
-    
+
     public void DestroySelf() {
         _kitchenObjectParent.ClearKitchenObject();
         Destroy(gameObject);
@@ -34,7 +31,7 @@ public class KitchenObject : MonoBehaviour {
         KitchenObject kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
         kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
     }
-    
+
     public KitchenObjectSO GetKitchenObjectSO() {
         return kitchenObjectSO;
     }

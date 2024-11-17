@@ -21,7 +21,7 @@ namespace Counters {
                         player.GetKitchenObject().SetKitchenObjectParent(this);
                         _cuttingProgress = 0;
 
-                        CuttingRecipeSO cuttingRecipeSO = 
+                        CuttingRecipeSO cuttingRecipeSO =
                             GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
                         OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
